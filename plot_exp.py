@@ -23,14 +23,14 @@ K = [298.15, 313.15, 333.15]
 # alpha
 # thermal expansion
 # https://pubs.acs.org/doi/pdf/10.1021/je00054a002
-#### https://pubs.acs.org/doi/full/10.1021/je060415l
+# https://pubs.acs.org/doi/full/10.1021/je060415l
 # units: 10^3 K^-1
 # therm_expan = np.array([1.204, 1.254, 1.332])/10**3
 therm_expan = np.array([11.43, 11.66, 11.90, 12.15, 12.40, 12.67, 12.94]) / 10 ** 4
 K_alpha = [273.15, 283.15, 293.15, 303.15, 313.15, 323.15, 333.15]
 
-#  Diffusion coefficients of methanol and water and the mutual diffusion coefficient in methanol-water solutions at 278 and 298 K
-# units: 10^-9 m^2 s^-1
+# Diffusion coefficients of methanol and water and the mutual diffusion coefficient in methanol-water solutions at
+# 278 and 298 K units: 10^-9 m^2 s^-1
 D1 = [1.462, 2.190]
 K_D1 = [278.15, 298.15]
 # https://pubs.acs.org/doi/pdf/10.1021/j100824a520
@@ -38,10 +38,10 @@ D2 = [1.26, 1.55, 1.91, 2.32, 2.74, 2.89, 3.88]
 K_D2 = [268.2, 278.2, 288.2, 298.2, 308.2, 313.2, 328.2]
 D_uncert2 = [0.05, 0.04, 0.01, 0.01, 0.20, 0.03, 0.37, 0.13]
 
-#  heat of vaporization
-# Dionisio M.S.; Moura Ramos J.J.; Goncalves R.M.: The enthalpy and entropy of cavity formation in liquids and Corresponding States Principle. Can.J.Chem. 68 (1990) 1937-1949
-# Matyushov D.V.; Schmid R.: Properties of Liquids at the Boiling Point: Equation of State, Internal Pressure and Vaporization Entropy. Int.J.Phys.Chem.Ber.Bunsen-Ges. 98 (1994) 1590-1595
-# J/mol --> kcal/mol
+# heat of vaporization Dionisio M.S.; Moura Ramos J.J.; Goncalves R.M.: The enthalpy and entropy of cavity formation
+# in liquids and Corresponding States Principle. Can.J.Chem. 68 (1990) 1937-1949 Matyushov D.V.; Schmid R.:
+# Properties of Liquids at the Boiling Point: Equation of State, Internal Pressure and Vaporization Entropy.
+# Int.J.Phys.Chem.Ber.Bunsen-Ges. 98 (1994) 1590-1595 J/mol --> kcal/mol
 H_vap = np.array([37420.00, 35200.00]) * 0.000239006
 H_vap_K = [298.15, 337.80]
 
@@ -104,7 +104,7 @@ def plot_traj_data(df):
     plt.savefig(f"figs/sim/{title}.pdf", bbox_inches="tight")
 
 
-def plot_properties(data_dfs, data_labels, FONTSIZE=20):
+def plot_properties(data_dfs, data_labels, FONTSIZE=20, show=False):
     mosaic = """
         AB
         CD
@@ -184,8 +184,9 @@ def plot_properties(data_dfs, data_labels, FONTSIZE=20):
     plt.subplots_adjust(wspace=None, hspace=None)
 
     plt.savefig(f"figs/prop/{data_labels[0]}.pdf", bbox_inches="tight")
-    plt.show()
 
+    if show:
+        plt.show()
 
 
 def keep_line(line):
@@ -205,7 +206,7 @@ def get_params(df):
 
     out_dict = {}
     for l in lines_to_keep:
-        out_dict[l[0]+"_e"] = l[2]
+        out_dict[l[0] + "_e"] = l[2]
         out_dict[l[0] + "_s"] = l[3]
 
     return out_dict
@@ -249,7 +250,7 @@ def test_properties(df, label, plot=False):
 
     # D
     # output["D_error"] = np.mean(abs(fit_D - sim_D))
-    output["D_error"] = np.sum((fit_D - sim_D)**2)
+    output["D_error"] = np.sum((fit_D - sim_D) ** 2)
     # output["D_r2"] = r_value ** 2
 
     # Density
@@ -258,8 +259,7 @@ def test_properties(df, label, plot=False):
     # output["Dens_r2"] = r_value ** 2
 
     # isothermal compressibility kappa
-    output["kappa_error"] = np.sum((fit_kappa*10**4 - np.array(kappa_sim[2:])*10**4)**2)
-
+    output["kappa_error"] = np.sum((fit_kappa * 10 ** 4 - np.array(kappa_sim[2:]) * 10 ** 4) ** 2)
 
     # Hvap
     slope, intercept, r_value, p_value, std_err = stats.linregress(
@@ -268,7 +268,7 @@ def test_properties(df, label, plot=False):
     hvap_t1_error = abs(8.94 - (slope * 289.15 + intercept))
     hvap_t2_error = abs(8.42 - (slope * 337.85 + intercept))
 
-    output["Hvap_error"] = np.sum([hvap_t1_error**2, hvap_t2_error**2])
+    output["Hvap_error"] = np.sum([hvap_t1_error ** 2, hvap_t2_error ** 2])
 
     output.update(get_params(df))
 

@@ -5,24 +5,24 @@ import matplotlib.pyplot as plt
 from dataclasses import dataclass, field
 from pint import UnitRegistry
 import warnings
-import arch.bootstrap as bs
-
-
-def boot_strap(x, y, func=np.mean):
-    stat_bs = bs.StationaryBootstrap(1000, x, y=y)
-    means = []
-
-    for i in stat_bs.bootstrap(600):
-        bs_y = i[1]["y"]
-        means.append(func(bs_y))
-
-    return means
-
-
-def get_se(x, y):
-    means = boot_strap(x, y)
-    se = np.std(means)
-    return se
+# import arch.bootstrap as bs
+#
+#
+# def boot_strap(x, y, func=np.mean):
+#     stat_bs = bs.StationaryBootstrap(1000, x, y=y)
+#     means = []
+#
+#     for i in stat_bs.bootstrap(600):
+#         bs_y = i[1]["y"]
+#         means.append(func(bs_y))
+#
+#     return means
+#
+#
+# def get_se(x, y):
+#     means = boot_strap(x, y)
+#     se = np.std(means)
+#     return se
 
 
 # ignore the casting errors for units
