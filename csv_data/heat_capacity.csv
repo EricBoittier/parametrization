@@ -1,0 +1,27 @@
+"Cp,liquid (J/mol*K)",Temperature (K),Reference,Comment
+79.5,298.15,"Filatov and Afanas'ev, 1992",DH
+81.11,298.15,"Khasanshin and Zykova, 1989",T = 175 to 338 K. Unsmoothed experimental datum.; DH
+80.24,298.15,"Andreoli-Ball, Patterson, et al., 1988",DH
+80.35,298.15,"Okano, Ogawa, et al., 1988",DH
+81,298.15,"Lankford and Criss, 1987",DH
+81.32,298,"Korolev, Kukharenko, et al., 1986",DH
+80.28,298.15,"Ogawa and Murakami, 1986",DH
+81.56,298.15,"Tanaka, Toyama, et al., 1986",DH
+80.22,298.15,"Costas and Patterson, 1985","T = 298.15, 313.15 K.; DH"
+81.47,298.15,"Zegers and Somsen, 1984",DH
+78.9,288.15,"Benson and D'Arcy, 1982",DH
+81.92,298.15,"Villamanan, Casanova, et al., 1982",DH
+80.8,293.15,"Atalla, El-Sharkawy, et al., 1981",DH
+81.13,298.15,"Carlson and Westrum, 1971",T = 5 to 332 K.; DH
+83.7,298,"Deshpande and Bhatagadde, 1971",T = 298 to 318 K.; DH
+85.8,313.2,"Paz Andrade, Paz, et al., 1970",DH
+85.8,298.2,"Katayama, 1962",T = 10 to 60°C.; DH
+80.8,311,"Swietoslawski and Zielenkiewicz, 1960",Mean value 21 to 56°C.; DH
+86.2,323,"Hough, Mason, et al., 1950",T = 323 to 353 K.; DH
+75.77,270,"Staveley and Gupta, 1949",T = 90 to 270 K.; DH
+86.6,300.8,"Phillip, 1939",DH
+83.56,313.15,"Fiock, Ginnings, et al., 1931",T = 40 to 110°C.; DH
+79.9,292,"Kelley, 1929",T = 16 to 293 K. Value is unsmoothed experimental datum.; DH
+78.2,270,"Mitsukuri and Hara, 1929",T = 190 to 270 K.; DH
+79.9,290.1,"Parks, 1925",T = 89 to 290 K. Value is unsmoothed experimental datum.; DH
+83.3,298,"von Reis, 1881",T = 288 to 335 K.; DH
